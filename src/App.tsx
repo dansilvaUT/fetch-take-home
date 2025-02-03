@@ -6,6 +6,10 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
+  const myFunc = (node: string): string => {
+    return +node;
+  };
+
   return (
     <>
       <div>
