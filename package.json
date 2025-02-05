@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd ./client && yarn run dev\" \"cd ./server && yarn run dev\""
+    "start": "concurrently \"cd ./client && yarn run dev\""
   },
   "keywords": [],
   "author": "",
