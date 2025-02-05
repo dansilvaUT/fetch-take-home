@@ -11,18 +11,18 @@
     "tsc": "tsc --watch",
     "start": "concurrently \"yarn run start:server\" \"yarn run start:client\"",
     "start:client": "yarn run dev",
-    "start:server": "nodemon --watch ../server ../server/index.js"
+    "start:server": "nodemon ../server/index.js"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.6.0",
     "@emotion/react": "^11.14.0",
-    "concurrently": "^9.1.2",
     "express": "^4.21.2",
     "next-themes": "^0.4.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-router": "^7.1.5",
+    "react-spinners": "^0.15.0",
     "vite-plugin-express": "^1.0.3"
   },
   "devDependencies": {
