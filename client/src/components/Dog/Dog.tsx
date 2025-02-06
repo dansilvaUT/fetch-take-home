@@ -1,5 +1,7 @@
-import { Card, Text } from "@chakra-ui/react";
+import { Card, Text, Stack } from "@chakra-ui/react";
 import { Avatar } from "@/components/ui/avatar";
+import "./Dog.scss";
+
 interface Dog {
   id: string;
   img: string;
@@ -15,12 +17,23 @@ interface DogProps {
 
 const Dog = ({ dog }: DogProps) => {
   return (
-    <Card.Root>
-      <Avatar src={dog.img} />
-      <Card.Title>{dog.name}</Card.Title>
-      <Text>{dog.breed}</Text>
-      <Text>{dog.age}</Text>
-      <Text>{dog.zip_code}</Text>
+    <Card.Root className="Dog-Card">
+      <Avatar className="Dog-Image" src={dog.img} />
+      <Card.Body className="Dog-Card-Body">
+        <Card.Title className="Bold">{dog.name}</Card.Title>
+        <Stack>
+          <Text className="Bold">Breed</Text>
+          <Text>{dog.breed}</Text>
+        </Stack>
+        <Stack>
+          <Text className="Bold">Age</Text>
+          <Text>{dog.age}</Text>
+        </Stack>
+        <Stack>
+          <Text className="Bold">Zip Code</Text>
+          <Text>{dog.zip_code}</Text>
+        </Stack>
+      </Card.Body>
     </Card.Root>
   );
 };

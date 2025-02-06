@@ -41,7 +41,6 @@ const getDogs = async (queryParams = {}) => {
 const getMatchedDogs = async (
   resultIds: Array<string>
 ): Promise<Array<Dog>> => {
-  console.log(resultIds);
   try {
     const response = await axios.post(`${BASE_URL}/dogs`, resultIds, {
       withCredentials: true,
