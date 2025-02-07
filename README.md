@@ -38,7 +38,7 @@ yarn install
 yarn start
 ```
 
-The app will now be running on [http://localhost:3000](http://localhost:3000).
+The app will now be running on [http://localhost:3000](http://localhost:5173).
 
 ## Dependencies
 
