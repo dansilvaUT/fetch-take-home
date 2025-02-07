@@ -18,24 +18,14 @@ interface DogsProps {
 
 const Dogs = ({ dogs }: DogsProps) => {
   const itemsPerPage = 8;
-  const [currentPage, setCurrentPage] = useState(1);
+  const [page, setPage] = useState(1);
+  const startRange = (page - 1) * itemsPerPage;
+  const endRange = startRange + itemsPerPage;
 
-  const totalPages = Math.ceil(dogs.length / itemsPerPage);
+  const visibleItems = dogs.slice(startRange, endRange);
 
-  const currentItems = dogs.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  const nextPage = () => {
-    setCurrentPage((prev) => prev + 1);
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prev) => prev - 1);
-  };
   const renderDogs = () => {
-    return currentItems.map((dog: Dog) => {
+    return visibleItems.map((dog: Dog) => {
       return <DogComp key={dog.id} dog={dog} />;
     });
   };
@@ -43,10 +33,10 @@ const Dogs = ({ dogs }: DogsProps) => {
     <Container>
       {renderDogs()}
       <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        nextPage={nextPage}
-        prevPage={prevPage}
+        page={page}
+        count={dogs.length}
+        pageSize={itemsPerPage}
+        onPageChange={(newPage) => setPage(newPage)}
       />
     </Container>
   );

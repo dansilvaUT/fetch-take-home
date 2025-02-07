@@ -1,30 +1,40 @@
+import { HStack } from "@chakra-ui/react";
+import {
+  PaginationItems,
+  PaginationNextTrigger,
+  PaginationPrevTrigger,
+  PaginationRoot,
+} from "@/components/ui/pagination";
+
 interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  nextPage: () => void;
-  prevPage: () => void;
+  count: number;
+  onPageChange: (page: number) => void;
+  page: number;
+  pageSize: number;
 }
 
+interface PageChangeDetails {
+  page: number;
+}
 const Pagination = ({
-  currentPage,
-  totalPages,
-  nextPage,
-  prevPage,
+  page,
+  count,
+  pageSize,
+  onPageChange,
 }: PaginationProps) => {
   return (
-    <div>
-      <button onClick={prevPage} disabled={currentPage === 1}>
-        Prev
-      </button>
-
-      <span>
-        Page {currentPage} of {totalPages}
-      </span>
-
-      <button onClick={nextPage} disabled={currentPage === totalPages}>
-        Next
-      </button>
-    </div>
+    <PaginationRoot
+      page={page}
+      count={count}
+      pageSize={pageSize}
+      onPageChange={(details: PageChangeDetails) => onPageChange(details.page)}
+    >
+      <HStack>
+        <PaginationPrevTrigger />
+        <PaginationItems />
+        <PaginationNextTrigger />
+      </HStack>
+    </PaginationRoot>
   );
 };
 
