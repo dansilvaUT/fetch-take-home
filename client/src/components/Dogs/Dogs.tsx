@@ -15,6 +15,9 @@ const Dogs = ({ dogs }: DogsProps) => {
   const [page, setPage] = useState(1);
   const [sortType, setSortType] = useState<string>(SortTypes.CLEAR);
 
+  /**
+   * Sort the dogs based on the selected sort type
+   */
   const sortedDogs = useMemo(() => {
     const sortFunction = getSortFunction(sortType);
     return sortFunction([...dogs]);
@@ -25,6 +28,10 @@ const Dogs = ({ dogs }: DogsProps) => {
 
   const visibleItems = sortedDogs.slice(startRange, endRange);
 
+  /**
+   * Display paginated dogs
+   * @returns JSX.Element[]
+   */
   const renderDogs = () => {
     return visibleItems.map((dog: Dog) => {
       return <DogComp key={dog.id} dog={dog} />;
@@ -33,7 +40,7 @@ const Dogs = ({ dogs }: DogsProps) => {
 
   if (!dogs.length) return null;
   return (
-    <Container>
+    <Container mt={4} mb={4} p={0}>
       <Sort selectedSort={sortType} setSortType={setSortType} />
       {renderDogs()}
       <Pagination

@@ -1,0 +1,15 @@
+.Breeds {
+  &-Container {
+    margin: 5px 0px;
+  }
+
+  &-Breed {
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1px 0px;
+  }
+
+  &-Breed:hover {
+    color: rgb(0, 128, 255);
+  }
+}

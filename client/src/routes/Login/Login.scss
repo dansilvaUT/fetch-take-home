@@ -6,6 +6,10 @@
     justify-content: center;
   }
 
+  &-MainHeading {
+    text-align: center;
+  }
+
   &-Stack {
     min-width: 400px;
   }
@@ -16,5 +20,11 @@
 
   &-Btn {
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 766px) {
+  .Login-Stack {
+    min-width: 300px;
   }
 }

@@ -19,6 +19,10 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  /**
+   * Function to handle input change getting the users email and name
+   * @param e
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginCredentials((prevState) => ({
       ...prevState,
@@ -26,6 +30,10 @@ const Login = () => {
     }));
   };
 
+  /**
+   * Function for handling the submit event and get the "OK" response from the API
+   * @param e
+   */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -40,7 +48,10 @@ const Login = () => {
 
   return (
     <Container className="Login-Container">
-      <Heading size="5xl">Login</Heading>
+      <Heading size="5xl" className="Login-MainHeading">
+        Welcome to Doggo Finder!
+      </Heading>
+      <Heading size="3xl">Login</Heading>
       <form onSubmit={handleSubmit}>
         <Stack gap="5" className="Login-Stack">
           <Field.Root>

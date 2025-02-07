@@ -10,13 +10,17 @@ const Breeds = ({ breeds, onClick }: BreedsProps) => {
   const renderBreeds = () => {
     return breeds.map((breed) => {
       return (
-        <Text key={breed} onClick={() => onClick(breed)}>
+        <Text
+          className="Breeds-Breed"
+          key={breed}
+          onClick={() => onClick(breed)}
+        >
           {breed}
         </Text>
       );
     });
   };
-  return <Box>{renderBreeds()}</Box>;
+  return <Box className="Breeds-Container">{renderBreeds()}</Box>;
 };
 
 export default Breeds;
