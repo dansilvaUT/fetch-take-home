@@ -14,9 +14,26 @@ const getBreeds = async () => {
 };
 
 const getDogs = async (queryParams = {}) => {
+  const searchParams = new URLSearchParams({
+    size: "100",
+    from: "25",
+  });
+
+  Object.entries(queryParams).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      value.forEach((item) => {
+        searchParams.append(key, item);
+      });
+    } else {
+      searchParams.set(key, String(value));
+    }
+  });
+
+  searchParams.toString();
+
   try {
     const response = await axios.get(
-      `${BASE_URL}/dogs/search?size=100&from=25&${queryParams}`,
+      `${BASE_URL}/dogs/search?${searchParams}`,
       {
         withCredentials: true,
       }
