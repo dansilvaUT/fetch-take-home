@@ -1,18 +1,9 @@
 import { Card, Text, Stack } from "@chakra-ui/react";
 import { Avatar } from "@/components/ui/avatar";
+import { Dog as DogInterface } from "@/interfaces/dog";
 import "./Dog.scss";
-
-interface Dog {
-  id: string;
-  img: string;
-  name: string;
-  age: number;
-  zip_code: string;
-  breed: string;
-}
-
 interface DogProps {
-  dog: Dog;
+  dog: DogInterface;
 }
 
 const Dog = ({ dog }: DogProps) => {

@@ -1,14 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "@/constants";
-
-interface Dog {
-  id: string;
-  img: string;
-  name: string;
-  age: number;
-  zip_code: string;
-  breed: string;
-}
+import { Dog } from "@/interfaces/dog";
 
 const getBreeds = async () => {
   try {
@@ -24,7 +16,7 @@ const getBreeds = async () => {
 const getDogs = async (queryParams = {}) => {
   try {
     const response = await axios.get(
-      `${BASE_URL}/dogs/search?size=100&from=25&sort=breed:asc&${queryParams}`,
+      `${BASE_URL}/dogs/search?size=100&from=25&${queryParams}`,
       {
         withCredentials: true,
       }
@@ -45,7 +37,10 @@ const getMatchedDogs = async (
     const response = await axios.post(`${BASE_URL}/dogs`, resultIds, {
       withCredentials: true,
     });
-    return response.data;
+
+    return response.data.sort((a: Dog, b: Dog) =>
+      a.breed.localeCompare(b.breed)
+    );
   } catch (error) {
     console.error(error);
     return [];

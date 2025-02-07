@@ -9,16 +9,9 @@ import {
 } from "@chakra-ui/react";
 import { Dogs } from "@/components/Dogs";
 import API from "@/api";
+import { Dog } from "@/interfaces/dog";
 
 const Search = () => {
-  interface Dog {
-    id: string;
-    img: string;
-    name: string;
-    age: number;
-    zip_code: string;
-    breed: string;
-  }
   const [dogs, setDogs] = useState([] as Array<Dog>);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
