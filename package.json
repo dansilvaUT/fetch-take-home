@@ -4,14 +4,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd ./client && yarn run dev\""
+    "start": "cd ./client && yarn run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "concurrently": "^9.1.2",
     "dotenv": "^16.4.7"
   },
   "devDependencies": {
